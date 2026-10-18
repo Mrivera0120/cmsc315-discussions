@@ -24,9 +24,26 @@ from copy import copy, deepcopy
 #
 # Replace the pass statement with your implementation.
 
-class ParentClass:
-    pass
+class Keyboard:
+    category = "Mechanical Keyboard"
 
+    def __init__(self, brand, model, switch_type) :
+        self.brand = brand
+        self.model = model
+        self.switch_type = switch_type
+
+    def display_info(self):
+        print(f"Brand: {self.brand}")
+        print(f"Model: {self.model}")
+        print(f"Switches: {self.switch_type}")
+
+    def change_switches(self, new_switches):
+        if not new_switches.strip():
+            print("Error: Switch type can't be empty.")
+            return
+
+        self.switch_type = new_switches
+        print(f"Switches changed to: {self.switch_type}")
 
 # TODO 2:
 # Create a child class that inherits from the parent class.
@@ -40,8 +57,14 @@ class ParentClass:
 #
 # Replace the pass statement with your implementation.
 
-class ChildClass(ParentClass):
-    pass
+class GamingKeyboard(Keyboard):
+    def __init__(self, brand, model, switch_type, rgb_lighting):
+        super().__init__(brand, model, switch_type)
+        self.rgb_lighting = rgb_lighting
+
+    def display_info(self):
+        super().display_info()
+        print(f"RGB Lighting: {self.rgb_lighting}")
 
 
 # TODO 3:
@@ -56,10 +79,25 @@ class ChildClass(ParentClass):
 # - Display information about the class namespace.
 
 def demonstrate_namespaces():
-    print("\n=== Namespace Demonstration ===")
-    print("TODO: Implement namespace demonstration")
+    keyboard1 = GamingKeyboard("Epomaker", "TH108", "Creamy Jade", True)
+    keyboard2 = GamingKeyboard("Varmilo", "Minilo65", "Kaihl Prestige", False)
 
+    print("\nClass variable through class: ")
+    print(Keyboard.category)
 
+    print("\nClass variable through object: ")
+    print(keyboard1.category)
+
+    keyboard1.connection = "Wireless"
+
+    print("\nKeyboard 1 namespace: ")
+    print(keyboard1.__dict__)
+
+    print("\nKeyboard 2 namespace: ")
+    print(keyboard2.__dict__)
+
+    print("\nKeyboard Class Namespace: ")
+    print(Keyboard.__dict__)
 # TODO 4:
 # Create a function that demonstrates shallow copying and deep copying.
 #
@@ -73,8 +111,20 @@ def demonstrate_namespaces():
 
 def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
-    print("TODO: Implement shallow copy and deep copy demonstration")
 
+    keyboard_setup = {
+        "keyboard": "Epomaker TH108",
+        "accessories":  ["Wrist Rest", "Coiled Cable"]
+    }
+
+    shallow_copy = copy(keyboard_setup)
+    deep_copy = deepcopy(keyboard_setup)
+
+    keyboard_setup["accessories"].append("Keycap Puller")
+
+    print("Original: ", keyboard_setup)
+    print("Shallow Copy: ", shallow_copy)
+    print("Deep Copy: ", deep_copy)
 
 # TODO 5:
 # Complete the main function.
@@ -89,9 +139,18 @@ def demonstrate_copying():
 def main():
     print("=== Unit 1 OOP Assignment ===")
 
-    print("\nTODO: Create and test your parent object")
+    print("\n=== Parent Keyboard ===")
+    keyboard1 = Keyboard("Epomaker", "TH108", "Creamy Jade")
+    keyboard1.display_info()
 
-    print("\nTODO: Create and test your child object")
+    print("\n=== Gaming Keyboard ===")
+    gaming_keyboard1 = GamingKeyboard("Redragon", "K762", "Creamy", True)
+    gaming_keyboard1.change_switches("Akko Creamy Purple")
+    gaming_keyboard1.display_info()
+
+    print("\n=== Edge Case Test ===")
+    gaming_keyboard1.change_switches("")
+    print("Current switches: ", gaming_keyboard1.switch_type)
 
     demonstrate_namespaces()
     demonstrate_copying()
