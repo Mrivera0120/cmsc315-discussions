@@ -58,7 +58,7 @@ I ran the program in IntelliJ IDEA and reviewed teh console output to verify tha
 I tested four edge cases to demonstrate how the program handled unusual situations. 
 
 First, I attempted to delete an element using an invalid index of `10`. The function returned `None`, and the original list remained unchanged.
-Next, I searched for a keyboard that was not in teh collection. The function returned `-1`, indicating that no matching value was found.
+Next, I searched for a keyboard that was not in the collection. The function returned `-1`, indicating that no matching value was found.
 I also tested inserting a keyboard into an empty list. The program successfully added `Redragon` without requiring any existing elements to shift. 
 
 Finally, I attempted to delete an element from an empty list. The function returned `None` without causing an error. 
