@@ -148,5 +148,23 @@ def main():
     single_tree.insert(100)
     print("Single-node traversal:", single_tree.inorder_traversal())
 
+    print("\n=== REAL-WORLD BST EXAMPLE ===")
+    # A school could use a BST to organize student IDs.
+    # Smaller IDs go left, while larger IDs go right
+    student_ids = [1050, 1020, 1080, 1010, 1040, 1070, 1090]
+    student_tree = BST()
+    # Insert each student ID into the BSt
+    for student_id in student_ids:
+        student_tree.insert(student_id)
+    print("Student IDs added:", student_ids)
+    # In-order traversal displays IDs in ascending order
+    print("Sorted student IDs:", student_tree.inorder_traversal())
+    # Search for a student hwo exists
+    print("Student ID 1040 exists:", student_tree.search(1040))
+    # Search for a student who does not exist
+    print("Student ID 1100 exists:", student_tree.search(1100))
+    # A balanced bST can find IDs in O(log n) time
+    # An unbalanced BST may require O(n) time
+
 if __name__ == "__main__":
     main()
