@@ -87,18 +87,6 @@ class BST:
         # Return the values in ascending order
         return values
 
-    def _inorder_recursive(self, node, values):
-        # Stop when there are no more nodes to visit.
-        if node is None:
-            return
-        # Visit the left subtree first.
-        self._inorder_recursive(node.left, values)
-        # Add the current node's value.
-        values.append(node.value)
-        # Visit the right subtree last.
-        self._inorder_recursive(node.right, values)
-
-
 def main():
     print("=== UNIT 4: BINARY SEARCH TREES ===")
 
@@ -133,7 +121,7 @@ def main():
     # BST searching can be more efficient than linear
     # searching because each comparison determines
     # which subtree to explore.
-    #
+
     # In a balanced BST, search takes 0(log n) time.
     # In an unbalanced BST, searching may tak O(n) time.
     for value in existing_values:
@@ -152,7 +140,7 @@ def main():
     # Edge Case 3: Inserting a duplicate value
     # Duplicate values are ignored, preventing repeated
     # entries in this implementation
-    tree.insert(3)
+    tree.insert(30)
     print("Traversal after inserting duplicate 30:", tree.inorder_traversal())
     # Edge Case 4: A tree containing only 9one node.
     # The root is also a leaf because it has no children
