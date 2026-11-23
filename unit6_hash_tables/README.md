@@ -170,6 +170,8 @@ Python dictionaries use hash tables internally to support efficient key-value op
 
 ## Conclusion
 
-This assignment strengthened my understanding of Python dictionaries and how they relate to hash tables. Implementing dictionary operations helped me understand how key-value pairs can be efficiently stored and accessed.
+Throughout this assignment, I gained a better understanding of how Python dictionaries function as hash tables and how key-value pairs can be used to organize information efficiently. I practiced inserting, retrieving, updating, and deleting student records using unique student IDs. One concept I found particularly interesting was how assigning a new value to an existing key updates the record without creating a duplicate entry.&nbsp;
 
-Testing missing keys, duplicate-key assignments, and invalid key types also demonstrated the importance of handling unexpected inputs. The student grade management scenario provided a practical example of how dictionaries can be used to organize and update information in real-world applications.
+One challenge was understanding how dictionaries handle unexpected inputs. While testing edge cases, I explored what happens when a key doesn't exist and why a list can't be used as a dictionary key. Using a try-except block helped me understand how to handle a TypeError without causing the program to stop.&nbsp;
+
+I also learned that hash tables use hash functions to determine where information is stored. A collision occurs when different keys map to the same bucket, requiring a collision-handling technique such as chaining or probing. Hash tables can improve efficiency by allowing fast retrieval, insertion, and deletion, typically in O(1) average time. This makes dictionaries useful for managing information such as student records.&nbsp;
